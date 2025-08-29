@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radhe Books</title>
+
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f8f8f8;
+    }
+    header {
+      background: #2c3e50;
+      color: #fff; text-align: center;
+      padding: 20px;
+    }
+    header h1 { margin: 0; }
+    header p { margin: 5px 0 0; }
+
+    /* Slider */
+    .book-slider {
+      margin: 30px auto;
+      max-width: 1000px;
+    }
+    .owl-carousel .owl-stage-outer {
+      height: 400px !important;
+    }
+    .book-slider .item {
+      width: 250px;
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin: auto;
+    }
+    .book-slider img {
+      width: 150px;
+      height: 200px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .book-slider h3 { margin: 5px 0; font-size: 18px; }
+    .book-slider p { font-size: 14px; color: #555; }
+    .book-slider button {
+      padding: 8px 15px;
+      background: #27ae60; color: white;
+      border: none; border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .book-slider button:hover { background: #219150; }
+
+    /* Order Form */
+    .order-form {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .order-form h2 { text-align: center; margin-bottom: 20px; }
+    .order-form input, .order-form textarea, .order-form button {
+      width: 100%; padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc; border-radius: 5px;
+      font-size: 14px;
+    }
+    .order-form button {
+      background: #2980b9; color: white;
+      border: none; cursor: pointer;
+      transition: 0.3s;
+    }
+    .order-form button:hover { background: #1c5d87; }
+
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .owl-carousel .owl-stage-outer { height: 320px !important; }
+      .book-slider .item { width: 200px; height: 300px; }
+      .book-slider img { width: 120px; height: 160px; }
+    }
+    @media (max-width: 480px) {
+      .owl-carousel .owl-stage-outer { height: 280px !important; }
+      .book-slider .item { width: 160px; height: 260px; padding: 15px; }
+      .book-slider img { width: 100px; height: 140px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>📚 Radhe Books</h1>
+    <p>Email: ks9978535@gmail.com | Phone: 9914 349 657</p>
+  </header>
+
+  <!-- Book Slider -->
+  <section class="book-slider owl-carousel owl-theme">
+    <div class="item">
+      <img src=https://targetpublications.org/_next/image?url=https%3A%2F%2Fcdn.targetpublications.org%2Fadmin%2Fproducts%2Fmedia%2Fimages%2F1297%2F20713_1.webp&w=640&q=75 alt="Book 1">
+      <h3>Book Title 1</h3>
+      <p><b>RS 400</b></p>
+      <button onclick="orderBook('Book Title 1')">Order Now</button>
+    </div>
+    <div class="item">
+      <img src=https://statmo.in/wp-content/uploads/2018/07/Classmate-Notebook-Single-Line-32-Page-600x607.jpg alt="Book 2">
+      <h3>Book Title 2</h3>
+      <p><b>RS 600</b></p>
+      <button onclick="orderBook('Book Title 2')">Order Now</button>
+    </div>
+    <div class="item">
+      <img src=https://wallpapers.com/images/file/book-pictures-ebvjiijqn8kazosd.jpg alt="Book 3">
+      <h3>Book Title 3</h3>
+      <p><b>RS 800</b></p>
+      <button onclick="orderBook('Book Title 3')">Order Now</button>
+    </div>
+  </section>
+
+  <!-- Order Form -->
+  <section class="order-form">
+    <h2>📦 Place Your Order</h2>
+    <form onsubmit="sendWhatsApp(event)">
+      <input type="text" id="customerName" placeholder="Your Name" required>
+      <input type="email" id="customerEmail" placeholder="Your Email" required>
+      <input type="tel" id="customerPhone" placeholder="Your Phone" required>
+      <input type="text" id="bookTitle" placeholder="Book Title" readonly>
+      <input type="number" id="quantity" placeholder="Quantity" min="1" value="1" required>
+      <textarea id="address" rows="3" placeholder="Shipping Address" required></textarea>
+      <button type="submit">Submit Order</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 My Online Book Store. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script>
+    // Owl Carousel init
+    $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
+        loop:true,
+        margin:15,
+        nav:true,
+        autoplay:true,
+        autoplayTimeout:3000,
+        responsive:{
+          0:{items:1},
+          600:{items:2},
+          1000:{items:3}
+        }
+      });
+    });
+
+    // Fill book title when clicking Order Now
+    function orderBook(title){
+      document.getElementById("bookTitle").value = title;
+      window.scrollTo({ top: document.querySelector(".order-form").offsetTop, behavior: "smooth" });
+    }
+
+    // Send order via WhatsApp
+    function sendWhatsApp(event) {
+      event.preventDefault();
+      let name = document.getElementById("customerName").value;
+      let email = document.getElementById("customerEmail").value;
+      let phone = document.getElementById("customerPhone").value;
+      let book = document.getElementById("bookTitle").value;
+      let quantity = document.getElementById("quantity").value;
+      let address = document.getElementById("address").value;
+
+      let msg = `📖 New Book Order:
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Book: ${book}
+Quantity: ${quantity}
+Address: ${address}`;
+
+      let whatsapp = "https://wa.me/9877870280?text=" + encodeURIComponent(msg); 
+      // 🔹 replace 1234567890 with your WhatsApp number (with country code, no +)
+
+      window.open(whatsapp, "_blank");
+    }
+  </script>
+</body>
+</html>
